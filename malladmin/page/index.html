@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>后台管理页面</title>
+    <link rel="stylesheet" href="./css/init.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./font/iconfont.css" />
+    <link rel="stylesheet" href="./boostrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="./css/dataCenter.css" />
+    <link rel="stylesheet" href="./css/produce-list.css" />
+    <link rel="stylesheet" href="./css/orderList.css" />
+    <link rel="stylesheet" href="./css/business.css" />
+    <link rel="stylesheet" href="./css/uploadProduce.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css"
+    />
+    <script src="./boostrap/js/jquery.min.js"></script>
+    <script src="./boostrap/js/bootstrap.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="./js/echarts.min.js"></script>
+  </head>
+  <body>
+    <div class="admin-page">
+      <div class="content-left">
+        <div class="content-menu">
+          <dl class="tap">
+            <dt>
+              <div class="logo">
+                <img class="pic" src="./images/logo.gif" alt="" />
+              </div>
+              <div class="user-pic">
+                <img class="pic" src="./images/user.png" alt="" />
+              </div>
+              <div class="user-name">
+                admin
+              </div>
+            </dt>
+            <dd data-class="data-center" class="dataCenter">
+              <i class="iconfont icon-shujufenxi"></i>
+              <span>数据中心</span>
+            </dd>
+            <dd data-class="produce-list" class="menu-produce">
+              <i class="iconfont icon-shangpin"></i>
+              <span>商品列表</span>
+            </dd>
+            <dd data-class="order-list">
+              <i class="iconfont icon-74wodedingdan"></i>
+              <span>订单列表</span>
+            </dd>
+            <dd data-class="upload-produce">
+              <i class="iconfont icon-yonghu"></i>
+              <span>商品上传</span>
+            </dd>
+          </dl>
+          <div class="turn-off">
+            <button type="button" class="to-btn">
+              <span>
+                <i class="iconfont icon-tuichu"></i>
+                退出登录
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="content-right">
+        <div class="content-home">欢迎回来，管理员！</div>
+        <div class="content data-center">
+          <div class="main">
+            <div class="main-top">
+              <div class="userInfo-count">
+                <div class="title"><i class="iconfont icon-yonghu"></i></div>
+                <div class="userinfo-sum">151111192</div>
+                <div class="userinfo-name">用户数量</div>
+              </div>
+              <div class="tid-chart"></div>
+              <div class="produce-count">
+                <div class="title"><i class="iconfont icon-shangpin"></i></div>
+                <div class="produce-sum">151111192</div>
+                <div class="produce-name">商品数量</div>
+              </div>
+            </div>
+            <div class="main-bottom">
+              <div class="transaction-amount"></div>
+            </div>
+          </div>
+        </div>
+        <div class="content produce-list">
+          <div class="produce-content">
+            <div class="produce-top">
+              <span class="logo">商品列表</span>
+            </div>
+            <div class="produce-nav">
+              <table id="produce-table"></table>
+            </div>
+          </div>
+        </div>
+        <div class="content order-list">
+          <div class="order-content">
+            <div class="order-top">
+              <span class="logo">订单列表</span>
+            </div>
+            <div class="order-nav">
+              <table id="order-table"></table>
+            </div>
+          </div>
+        </div>
+        <div class="content upload-produce">
+          <div class="upload">
+            <div class="upload-content">
+              <h4 class="upload-title">商品上传</h4>
+              <form
+                class="upload-form"
+                action="/saveProduce"
+                method="post"
+                enctype="multipart/form-data"
+                onsubmit="return false"
+              >
+                <div class="up">
+                  <label for="produceName">商品名称:</label>
+                  <input
+                    id="produceName"
+                    name="produceName"
+                    placeholder="请填写商品名称"
+                    type="text"
+                  />
+                </div>
+                <div class="up">
+                  <label for="storeName">店铺名称:</label>
+                  <input
+                    id="storeName"
+                    name="storeName"
+                    placeholder="请填写店铺名称"
+                    type="text"
+                  />
+                </div>
+                <div class="up">
+                  <label for="price">价格:</label>
+                  <input
+                    id="price"
+                    name="price"
+                    placeholder="请填写商品价格"
+                    type="text"
+                  />
+                </div>
+                <div class="up">
+                  <label for="stock">上架量:</label>
+                  <input
+                    id="stock"
+                    name="stock"
+                    placeholder="请填写商品上架量"
+                    type="text"
+                  />
+                </div>
+                <div class="up">
+                  <label for="color">颜色:</label>
+                  <input
+                    id="color"
+                    name="color"
+                    placeholder="请填写商品颜色(若无请省略，格式:'黑色,白色'(逗号小写))"
+                    type="text"
+                  />
+                </div>
+                <div class="up">
+                  <label for="size">尺寸:</label>
+                  <input
+                    id="size"
+                    name="size"
+                    placeholder="请填写商品尺寸(若无请省略，格式:('xl,xxl'|'42,43')(逗号小写))"
+                    type="text"
+                  />
+                </div>
+                <div class="up">
+                  <label for="style">款式:</label>
+                  <input
+                    id="style"
+                    name="style"
+                    placeholder="请填写商品款式(若无请省略，格式:'男款,女款'(逗号小写))"
+                    type="text"
+                  />
+                </div>
+                <div class="up">
+                  <label for="category">商品类型:</label>
+                  <input
+                    id="category"
+                    name="category"
+                    placeholder="请填写商品类型"
+                    type="text"
+                  />
+                </div>
+                <div class="up file-box">
+                  <label for="cover">商品图片:</label>
+                  <div class="upload-box">
+                    <div class="upload-main">
+                      <div class="upload-choose">
+                        <div class="addArea">
+                          <div class="filePicker">点击选择文件</div>
+                          <input
+                            class="fileInput"
+                            id="cover"
+                            name="cover"
+                            type="file"
+                            multiple
+                          />
+                        </div>
+                        <div class="upload-show">
+                          <ul class="pic-show"></ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="up submit">
+                  <button type="submit" class="submit-btn">商品上传</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/index.js"></script>
+    <script src="./js/dataCenter.js"></script>
+    <script src="./js/produceList.js"></script>
+    <script src="./js/orderList.js"></script>
+    <script src="./js/uploadProduce.js"></script>
+  </body>
+</html>

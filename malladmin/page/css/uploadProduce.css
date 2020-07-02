@@ -1,0 +1,112 @@
+.upload-produce {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-produce .upload {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    background-color: #fff;
+    color: #424242;
+    overflow: hidden;
+}
+.upload-produce .upload .upload-title {
+    margin: 30px 0 0 30px;
+}
+.upload-produce .upload .upload-form {
+    margin: 5px 0 0 30px;
+}
+.upload-produce .upload .up {
+    width: 500px;
+    height: 40px;
+    display: flex;
+    margin-top: 10px;
+}
+.upload-produce .upload .up label {
+    width: 100px;
+    line-height: 35px;
+}
+.upload-produce .upload input[type="text"] {
+    -webkit-appearance: none;
+    background-color: #fff;
+    background-image: none;
+    border-radius: 4px;
+    border: 1px solid #dcdfe6;
+    box-sizing: border-box;
+    color: #606266;
+    display: inline-block;
+    font-size: inherit;
+    height: 35px;
+    line-height: 35px;
+    outline: none;
+    padding: 0 15px;
+    transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+    width: 400px;
+}
+
+/* 文件上传 */
+.upload-produce .upload .up.file-box {
+    width: 500px;
+    height: 150px;
+}
+.upload-produce .upload .up .upload-box {
+    width: 400px;
+    height: 150px;
+    border: 1px solid #ccc;
+}
+.upload-produce .upload .up .upload-box .upload-choose {
+    width: 100%;
+    height: 150px;
+}
+.upload-produce .upload .up .upload-box .addArea {
+    width: 120px;
+    height: 75px;
+    padding-top: 45px;
+    box-sizing: border-box;
+    background: url("../images/add_img.png") no-repeat;
+    background-size: 100% 100%;
+}
+.upload-produce .upload .up .upload-box .addArea .filePicker {
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background-color: #00B7EE;
+    color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 12px;
+}
+.upload-produce .upload .up .upload-box .fileInput {
+    display: none;
+}
+.upload-produce .upload .up .upload-box .pic-show {
+    display: flex;
+}
+.upload-produce .upload .up .upload-box .upload-show .pic-show li,
+.upload-produce .upload .up .upload-box .upload-show .pic-show li img {
+    width: 50px;
+    height: 50px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+.upload-produce .upload .up.submit {
+    justify-content: center;
+    align-items: center;
+}
+.upload-produce .upload .up.submit .submit-btn {
+    width: 250px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #00B7EE;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+}

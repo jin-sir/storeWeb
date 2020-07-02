@@ -1,0 +1,124 @@
+:root {
+    font-size: 14px;
+}
+.admin-page {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.content-left {
+    min-width: 220px;
+    width: 15%;
+    height: 100%;
+    background-color: rgb(30, 30, 30);
+}
+.content-left .content-menu .tap>dt {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.content-left .content-menu .logo {
+    width: 100%;
+    text-align: center;
+    margin: 3rem 0;
+}
+.content-left .content-menu .logo img {
+    width: 4rem;
+    height: 2rem;
+}
+.content-left .content-menu .user-pic .pic {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 2.5rem;
+}
+.user-name {
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgb(255, 255, 255);
+    padding-top: 1.2rem;
+}
+.content-left .content-menu .tap dd {
+    width: 100%;
+    height: 4rem;
+    line-height: 4rem;
+    padding-left: 4rem;
+    box-sizing: border-box;
+    font-size: 1.1rem;
+    border-top: 1px solid rgb(56,56,56);
+    color: rgb(181,181,181);
+    cursor: pointer;
+}
+.content-left .content-menu .tap dd i {
+    margin-right: 10px;
+}
+.menu-tab,
+.content-left .content-menu .tap dd:hover {
+    background-image: linear-gradient(to right, rgb(43,210,200) 0%, rgb(30,30,30) 40%);
+}
+.menu-tab i,
+.content-left .content-menu .tap dd:hover i {
+    color: rgb(41,189,221);
+}
+.content-left .content-menu .tap dd:last-child {
+    border-bottom: 1px solid rgb(56,56,56);
+}
+.content-left .content-menu .turn-off {
+    width: 100%;
+    padding-top: 10rem;
+    text-align: center;
+    color: rgb(181,181,181);
+}
+.content-left .content-menu .turn-off .to-btn {
+    background-color: rgb(30, 30, 30);
+    border: none;
+    color: rgb(181,181,181);
+    outline: none;
+    cursor: pointer;
+}
+
+.content-right {
+    width: 85%;
+    height: 100%;
+    background-color: rgb(243,247,250);
+}
+.content-right .content-home {
+    width: 85%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+.content-right .content {
+    min-width: 1190px;
+    height: 0;
+    overflow: hidden;
+    transition: 1s all linear;
+    color: #fff;
+}
+.content-right .content.content-active {
+    height: 100%;
+}
+
+.data-center,
+.produce-list,
+.those-businesses,
+.order-list,
+.upload-produce {
+    background-color: rgb(244,239,243);
+}
+/* .produce-list {
+    background-color: green;
+}
+.those-businesses {
+    background-color: yellow;
+}
+.order-list {
+    background-color: pink;
+}
+.upload-produce {
+    background-color: blueviolet;
+} */
