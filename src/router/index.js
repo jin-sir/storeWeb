@@ -1,6 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);
 
@@ -8,16 +7,67 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: Home
+    component: () => import("../layout/default.vue"),
+    redirect: "/index",
+    children: [
+      {
+        path: "/index",
+        name: "index",
+        component: () => import("../views/index.vue")
+      },
+      {
+        path: "/Description",
+        name: "description",
+        component: () => import("../views/Description.vue")
+      },
+      {
+        path: "/Login",
+        name: "login",
+        component: () => import("../views/Login.vue")
+      },
+      {
+        path: "/Register",
+        name: "register",
+        component: () => import("../views/Register.vue")
+      },
+      {
+        path: "/Pay",
+        name: "pay",
+        component: () => import("../views/Pay.vue")
+      },
+      {
+        path: "/Cart",
+        name: "cart",
+        component: () => import("../views/Cart.vue")
+      },
+      {
+        path: "/AlreadyPurchased",
+        name: "alreadyPurchased",
+        component: () => import("../views/alreadyPurchased")
+      }
+    ]
   },
   {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+    path: "/blank",
+    name: "blank",
+    component: () => import("../layout/blank.vue"),
+    children: [
+      {
+        path: "/NotFound",
+        name: "NotFound",
+        component: () => import("../views/Error.vue")
+      }
+    ]
+  },
+  {
+    path: "*",
+    redirect(to) {
+      if (to.path === "/") {
+        return "/home";
+      } else {
+        return "/NotFound";
+      }
+    }
   }
 ];
 
